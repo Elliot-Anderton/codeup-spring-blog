@@ -40,6 +40,20 @@
 		</div>
 	</div>
 </nav>
+
+<form th:fragment="postForm" th:object="${post}" th:method="POST">
+	<input type="hidden" class="form-control" th:field="*{user}" id="user">
+	<div class="mb-3">
+		<label for="title" class="form-label">Title</label>
+		<input type="text" class="form-control" th:field="*{title}" id="title">
+	</div>
+	<div class="mb-3">
+		<label for="body" class="form-label">Body</label>
+		<input type="text" class="form-control" th:field="*{body}" id="body">
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 <footer th:fragment="footer" class="footer-bg d-flex justify-content-between align-items-center mt-auto">
 	<p class="p-0 m-1">This blog is for educational purposes, and should not be used for commercial gain.</p>
 	<p class="p-0 m-1">Created for the Dragon Cohort, Codeup - San Antonio</p>

@@ -6,12 +6,9 @@
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
-	<div>
-		<h1 th:text="${post.title}"></h1>
-		<p th:text="${post.body}"></p>
-		<p th:text="${post.user.email}"></p>
-		<a th:href="@{/posts/{id}/edit (id = ${post.id})}"><button class="btn btn-outline-primary my-3">Update</button></a>
-	</div>
+	<form th:action="@{posts/{id}/edit}" th:replace="partials :: postForm">
+		<input type="hidden" class="form-control" th:field="*{id}" id="id">
+	</form>
 </main>
 <footer th:replace="partials :: footer"></footer>
 <div th:replace="partials :: boot-scripts"></div>

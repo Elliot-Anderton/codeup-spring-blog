@@ -34,19 +34,29 @@ public class PostController {
         return "posts/show";
     }
 
+    @GetMapping("/posts/{id}/edit")
+    public String postsEdit(@PathVariable long id, Model model) {
+        model.addAttribute("post",
+                postDoa.getReferenceById(id));
+        return "posts/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String postUpdate(@ModelAttribute Post post) {
+        postDoa.save(post);
+        return "redirect:/posts";
+    }
+
     @GetMapping("/posts/create")
-    public String postsForm() {
+    public String postsForm(Model model) {
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    public String createPost(@RequestParam (name = "title") String title, @RequestParam (name = "body") String body) {
+    public String createPost(@ModelAttribute Post post) {
         User user = userDoa.findUserById(1);
-        Post post = new Post(
-                title,
-                body,
-                user
-        );
+        post.setUser(user);
         postDoa.save(post);
         return "redirect:/posts";
     }
