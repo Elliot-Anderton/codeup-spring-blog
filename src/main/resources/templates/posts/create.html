@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="partials :: head ('Viewing an Ad')">
+<head th:replace="partials :: head ('Create an Ad')">
 	<meta charset="UTF-8">
 	<title>Create Post</title>
 </head>
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
+	<h1>Create a post</h1>
 	<form th:action="@{/posts/create}" th:replace="partials :: postForm">
 	</form>
 </main>
