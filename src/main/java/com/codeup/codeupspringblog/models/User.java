@@ -18,7 +18,7 @@ public class User {
     @Column(nullable = false, length = 25)
     private String email;
 
-    @Column(nullable = false, length = 25)
+    @Column(nullable = false, length = 256)
     private String password;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
@@ -71,5 +71,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        userName = copy.userName;
+        password = copy.password;
     }
 }

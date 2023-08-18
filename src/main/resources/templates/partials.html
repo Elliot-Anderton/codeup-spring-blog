@@ -38,10 +38,19 @@
 					<a class="nav-link" href="/posts">All posts</a>
 			</ul>
 		</div>
+		<div class="collapse navbar-collapse" id="logout">
+			<ul class="navbar-nav w-100 mb-2 mb-lg-0">
+				<li>
+					<form th:action="@{/logout}" th:method="post">
+						<button class="btn-link btn" style="margin-top: 8px">Logout</button>
+					</form>
+				</li>
+			</ul>
+		</div>
 	</div>
 </nav>
 
-<form th:fragment="postForm" th:object="${post}" th:method="POST">
+<form th:fragment="postsForm(action)" th:action="${action}" th:object="${post}" th:method="POST">
 	<input type="hidden" class="form-control" th:field="*{user}" id="user">
 	<div class="mb-3">
 		<label for="title" class="form-label">Title</label>

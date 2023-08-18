@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="partials :: head ('Create an Ad')">
+<head th:replace="partials :: head ('Create a Post')">
 	<meta charset="UTF-8">
 	<title>Create Post</title>
 </head>
@@ -8,7 +8,7 @@
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
 	<h1>Create a post</h1>
-	<form th:action="@{/posts/create}" th:replace="partials :: postForm">
+	<form th:replace="partials :: postsForm(@{/posts/create})">
 	</form>
 </main>
 <footer th:replace="partials :: footer"></footer>

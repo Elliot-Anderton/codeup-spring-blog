@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="partials :: head ('Sign Up')">
+	<title>Sign-up</title>
+</head>
+<body class="main-bg main-container">
+<nav th:replace="partials :: navbar"></nav>
+<main class="container">
+	<h1>Create an account</h1>
+	<form th:action="@{/sign-up}" method="POST" th:object="${user}">
+		<label for="username">Username</label>
+		<input id="username" th:field="*{userName}" />
+
+		<label for="email">Email</label>
+		<input id="email" th:field="*{email}" />
+
+		<label for="password">Password</label>
+		<input id="password" type="password" th:field="*{password}" />
+
+		<input value="Sign me up!" type="submit" />
+	</form>
+</main>
+<footer th:replace="partials :: footer"></footer>
+<div th:replace="partials :: boot-scripts"></div>
+</body>
+</html>

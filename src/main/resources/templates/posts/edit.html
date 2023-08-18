@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head th:replace="partials :: head ('Edit a Post')">
-	<title>Prolonged Fart Noises</title>
+	<title>Edit Post</title>
 </head>
 <body class="main-bg main-container">
 <nav th:replace="partials :: navbar"></nav>
 <main class="container">
 	<h1>Edit a post</h1>
-	<form th:action="@{posts/{id}/edit}" th:replace="partials :: postForm">
+	<form th:replace="partials :: postsForm(@{/posts/{id}/edit(id=${post.id})})">
 		<input type="hidden" class="form-control" th:field="*{id}" id="id">
 	</form>
 </main>
